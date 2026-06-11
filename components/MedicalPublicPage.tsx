@@ -245,60 +245,6 @@ export default function MedicalPublicPage({ context, data }: Props) {
         </div>
       </section>
 
-      {/* PATIENT ADVOCACY: GUIDANCE TOOLS */}
-      <section id="advocacy" className="relative z-10 px-6 py-32 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
-            <div className="lg:col-span-5 space-y-12">
-              <div className="space-y-6">
-                <div className="flex items-center gap-4 text-[#C5A065]">
-                  <ShieldCheck className="h-6 w-6" />
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Patient Advocacy</span>
-                </div>
-                <h2 className="font-lora text-5xl font-medium leading-tight text-[#241F1A]">Plus qu'un site, un guide clinique</h2>
-                <p className="text-lg text-[#5A534A] leading-relaxed">
-                  {medical.advocacy?.mission}
-                </p>
-              </div>
-              <div className="space-y-8">
-                {medical.advocacy?.tips.map((tip) => (
-                  <div key={tip.id} className="flex gap-6 items-start">
-                    <div className="w-12 h-12 rounded-2xl bg-[#FAF9F6] border border-[#E8DFD1] flex items-center justify-center text-[#A67A3D] shrink-0 font-lora font-bold">!</div>
-                    <div className="space-y-2">
-                      <h4 className="font-bold text-[#241F1A] text-sm uppercase tracking-wider">{tip.title}</h4>
-                      <p className="text-sm text-[#5A534A] leading-relaxed">{tip.content}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div className="p-10 rounded-[3rem] bg-[#241F1A] text-white space-y-8 shadow-2xl relative overflow-hidden group hover:scale-[1.02] transition-all duration-500">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#C5A065]/10 blur-3xl -mr-16 -mt-16 group-hover:bg-[#C5A065]/20 transition-colors" />
-                <FileText className="h-10 w-10 text-[#C5A065]" />
-                <div className="space-y-4">
-                  <h3 className="font-lora text-2xl">Checklist Pré-Op</h3>
-                  <p className="text-sm text-white/60 leading-relaxed">Préparez vos documents et votre logistique pour une hospitalisation sereine au GHRMSA.</p>
-                </div>
-                <a href="/parcours" className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-[#C5A065] hover:text-white transition-colors">
-                  Consulter le guide <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-              <div className="p-10 rounded-[3rem] bg-[#FAF6F0] border border-[#C5A065]/20 space-y-8 group hover:scale-[1.02] transition-all duration-500">
-                <Heart className="h-10 w-10 text-[#0891B2]" />
-                <div className="space-y-4">
-                  <h3 className="font-lora text-2xl text-[#241F1A]">Suivi Post-Op</h3>
-                  <p className="text-sm text-[#5A534A] leading-relaxed">Fiches conseils pour la gestion de la douleur, du gonflement et de l'alimentation après l'acte.</p>
-                </div>
-                <a href="/parcours" className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-[#0891B2] hover:text-[#241F1A] transition-colors">
-                  Voir les conseils <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <RecentArticles data={medical} />
 
       <MedicalFAQ />
