@@ -58,7 +58,17 @@ export default function LegalPage({ context, data }: { context: SiteContext; dat
             </div>
 
             <div className="space-y-6">
-              <h2 className="font-lora text-3xl text-[#241F1A] border-b border-[#E8DFD1] pb-4">4. Déontologie médicale</h2>
+              <h2 className="font-lora text-3xl text-[#241F1A] border-b border-[#E8DFD1] pb-4">4. Transparence Tarifaire (Secteur 2)</h2>
+              <p className="text-sm leading-relaxed">
+                Le {context.businessName} exerce en <strong>Secteur 2 avec adhésion à l'OPTAM</strong> (Option Pratique Tarifaire Maîtrisée). Des dépassements d'honoraires maîtrisés peuvent être pratiqués. 
+              </p>
+              <p className="text-sm leading-relaxed">
+                Conformément à la législation, un <strong>devis pré-opératoire détaillé</strong> vous sera systématiquement remis avant toute intervention chirurgicale, afin que vous puissiez interroger votre mutuelle complémentaire sur les modalités de prise en charge. Les tarifs des consultations de suivi ou d'urgence sont affichés en salle d'attente.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <h2 className="font-lora text-3xl text-[#241F1A] border-b border-[#E8DFD1] pb-4">5. Déontologie médicale</h2>
               <p className="text-sm leading-relaxed">
                 Ce site est destiné à l'information du public. Il ne remplace en aucun cas une consultation médicale. Le {context.businessName} s'engage à respecter les principes du Code de Déontologie Médicale et les recommandations de l'Ordre National des Médecins concernant l'information sur le web.
               </p>

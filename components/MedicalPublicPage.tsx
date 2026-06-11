@@ -297,6 +297,12 @@ export default function MedicalPublicPage({ context, data }: Props) {
                   </div>
                 </div>
                 <EeatTrustGrid rppsNumber="10101603602" conventionnement="Secteur 2 (OPTAM)" />
+                <div className="pt-8">
+                  <a href={`tel:${context.contact.phone}`} className="inline-flex items-center gap-4 rounded-full bg-[#241F1A] px-8 py-5 text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-500 hover:bg-[#C5A065] shadow-lg">
+                    Prendre rendez-vous
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
             </div>
           </div>
         </div>
