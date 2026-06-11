@@ -34,7 +34,7 @@ export default function MobileMenu({ context, navItems }: Props) {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#FAF9F6] border-t border-[#E8DFD1]/60 p-6 space-y-6">
+        <div className="absolute top-[80px] left-0 w-full xl:hidden bg-[#FAF9F6] border-b border-[#E8DFD1]/60 p-6 space-y-6 shadow-xl z-50">
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
               <a
