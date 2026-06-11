@@ -1,0 +1,71 @@
+2026-06-11T04:46:20.633874Z	Cloning repository...
+2026-06-11T04:46:21.918390Z	From https://github.com/meetkptain/demoflora
+2026-06-11T04:46:21.918666Z	 * branch            949d86f5d5dd02ed730660f0432727a39a2f3c43 -> FETCH_HEAD
+2026-06-11T04:46:21.918729Z	
+2026-06-11T04:46:21.951667Z	HEAD is now at 949d86f update
+2026-06-11T04:46:21.952023Z	
+2026-06-11T04:46:22.253113Z	
+2026-06-11T04:46:22.253618Z	Using v2 root directory strategy
+2026-06-11T04:46:22.265523Z	Success: Finished cloning repository files
+2026-06-11T04:46:23.813844Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-06-11T04:46:23.814268Z	
+2026-06-11T04:46:23.814895Z	Found wrangler.toml file. Reading build configuration...
+2026-06-11T04:46:23.821250Z	pages_build_output_dir: .vercel/output/static
+2026-06-11T04:46:23.821444Z	Build environment variables: (none found)
+2026-06-11T04:46:23.977215Z	Successfully read the Wrangler configuration file.
+2026-06-11T04:46:24.114563Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2026-06-11T04:46:24.115031Z	Installing project dependencies: npm clean-install --progress=false
+2026-06-11T04:46:25.907416Z	npm error ERESOLVE could not resolve
+2026-06-11T04:46:25.907503Z	npm error
+2026-06-11T04:46:25.907560Z	npm error While resolving: @cloudflare/next-on-pages@1.13.16
+2026-06-11T04:46:25.907596Z	npm error Found: vercel@54.11.1
+2026-06-11T04:46:25.907625Z	npm error node_modules/vercel
+2026-06-11T04:46:25.907660Z	npm error   dev vercel@"^54.11.1" from the root project
+2026-06-11T04:46:25.907688Z	npm error
+2026-06-11T04:46:25.907723Z	npm error Could not resolve dependency:
+2026-06-11T04:46:25.907783Z	npm error peer vercel@">=30.0.0 && <=47.0.4" from @cloudflare/next-on-pages@1.13.16
+2026-06-11T04:46:25.907847Z	npm error node_modules/@cloudflare/next-on-pages
+2026-06-11T04:46:25.907887Z	npm error   dev @cloudflare/next-on-pages@"^1.13.5" from the root project
+2026-06-11T04:46:25.907923Z	npm error
+2026-06-11T04:46:25.907957Z	npm error Conflicting peer dependency: vercel@47.0.4
+2026-06-11T04:46:25.907991Z	npm error node_modules/vercel
+2026-06-11T04:46:25.908037Z	npm error   peer vercel@">=30.0.0 && <=47.0.4" from @cloudflare/next-on-pages@1.13.16
+2026-06-11T04:46:25.908075Z	npm error   node_modules/@cloudflare/next-on-pages
+2026-06-11T04:46:25.908122Z	npm error     dev @cloudflare/next-on-pages@"^1.13.5" from the root project
+2026-06-11T04:46:25.908185Z	npm error
+2026-06-11T04:46:25.908237Z	npm error Fix the upstream dependency conflict, or retry
+2026-06-11T04:46:25.908274Z	npm error this command with --force or --legacy-peer-deps
+2026-06-11T04:46:25.908315Z	npm error to accept an incorrect (and potentially broken) dependency resolution.
+2026-06-11T04:46:25.907416Z	npm error ERESOLVE could not resolve
+2026-06-11T04:46:25.907503Z	npm error
+2026-06-11T04:46:25.907560Z	npm error While resolving: @cloudflare/next-on-pages@1.13.16
+2026-06-11T04:46:25.907596Z	npm error Found: vercel@54.11.1
+2026-06-11T04:46:25.907625Z	npm error node_modules/vercel
+2026-06-11T04:46:25.907660Z	npm error   dev vercel@"^54.11.1" from the root project
+2026-06-11T04:46:25.907688Z	npm error
+2026-06-11T04:46:25.907723Z	npm error Could not resolve dependency:
+2026-06-11T04:46:25.907783Z	npm error peer vercel@">=30.0.0 && <=47.0.4" from @cloudflare/next-on-pages@1.13.16
+2026-06-11T04:46:25.907847Z	npm error node_modules/@cloudflare/next-on-pages
+2026-06-11T04:46:25.907887Z	npm error   dev @cloudflare/next-on-pages@"^1.13.5" from the root project
+2026-06-11T04:46:25.907923Z	npm error
+2026-06-11T04:46:25.907957Z	npm error Conflicting peer dependency: vercel@47.0.4
+2026-06-11T04:46:25.907991Z	npm error node_modules/vercel
+2026-06-11T04:46:25.908037Z	npm error   peer vercel@">=30.0.0 && <=47.0.4" from @cloudflare/next-on-pages@1.13.16
+2026-06-11T04:46:25.908075Z	npm error   node_modules/@cloudflare/next-on-pages
+2026-06-11T04:46:25.908122Z	npm error     dev @cloudflare/next-on-pages@"^1.13.5" from the root project
+2026-06-11T04:46:25.908185Z	npm error
+2026-06-11T04:46:25.908237Z	npm error Fix the upstream dependency conflict, or retry
+2026-06-11T04:46:25.908274Z	npm error this command with --force or --legacy-peer-deps
+2026-06-11T04:46:25.908315Z	npm error to accept an incorrect (and potentially broken) dependency resolution.
+2026-06-11T04:46:25.908367Z	npm error
+2026-06-11T04:46:25.908432Z	npm error
+2026-06-11T04:46:25.908482Z	npm error For a full report see:
+2026-06-11T04:46:25.908532Z	npm error /opt/buildhome/.npm/_logs/2026-06-11T04_46_24_594Z-eresolve-report.txt
+2026-06-11T04:46:25.908902Z	npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2026-06-11T04_46_24_594Z-debug-0.log
+2026-06-11T04:46:25.969999Z	Error: Exit with error code: 1
+2026-06-11T04:46:25.970248Z	    at ChildProcess.<anonymous> (/snapshot/dist/run-build.js)
+2026-06-11T04:46:25.970314Z	    at Object.onceWrapper (node:events:652:26)
+2026-06-11T04:46:25.970377Z	    at ChildProcess.emit (node:events:537:28)
+2026-06-11T04:46:25.970447Z	    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+2026-06-11T04:46:25.976886Z	Failed: build command exited with code: 1
+2026-06-11T04:46:26.659798Z	Failed: error occurred while running build command

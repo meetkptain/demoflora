@@ -1,0 +1,34 @@
+node_modules/
+
+
+# 📦 Dépendances
+node_modules/
+.pnp
+.pnp.js
+
+# 🏗️ Next.js & Build Outputs
+.next/
+out/
+dist/
+build/
+
+# ☁️ Cloudflare & Vercel CLI (CRUCIAL !)
+.vercel/
+.wrangler/
+
+# 🔐 Environnement & Secrets
+.env
+.env.local
+.env.production
+.env.development
+
+# 🖥️ OS & IDE
+.DS_Store
+*.pem
+.vscode/
+.idea/
+
+# 📄 Logs & Temp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

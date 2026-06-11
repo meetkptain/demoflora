@@ -1,0 +1,133 @@
+2026-06-11T04:51:41.226717Z	Cloning repository...
+2026-06-11T04:51:42.7655Z	From https://github.com/meetkptain/demoflora
+2026-06-11T04:51:42.765902Z	 * branch            be1512a42ebd865f67fea7160be84bbfcdfb65b7 -> FETCH_HEAD
+2026-06-11T04:51:42.766003Z	
+2026-06-11T04:51:42.792751Z	HEAD is now at be1512a update
+2026-06-11T04:51:42.79303Z	
+2026-06-11T04:51:42.837859Z	
+2026-06-11T04:51:42.838213Z	Using v2 root directory strategy
+2026-06-11T04:51:42.850533Z	Success: Finished cloning repository files
+2026-06-11T04:51:44.321805Z	Checking for configuration in a Wrangler configuration file (BETA)
+2026-06-11T04:51:44.322191Z	
+2026-06-11T04:51:44.322853Z	Found wrangler.toml file. Reading build configuration...
+2026-06-11T04:51:44.332399Z	pages_build_output_dir: .vercel/output/static
+2026-06-11T04:51:44.332578Z	Build environment variables: (none found)
+2026-06-11T04:51:44.501945Z	Successfully read the Wrangler configuration file.
+2026-06-11T04:51:44.991735Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2026-06-11T04:51:44.992192Z	Installing project dependencies: npm clean-install --progress=false
+2026-06-11T04:51:49.262766Z	npm warn deprecated path-match@1.2.4: This package is archived and no longer maintained. For support, visit https://github.com/expressjs/express/discussions
+2026-06-11T04:51:49.308067Z	npm warn deprecated rollup-plugin-inject@3.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
+2026-06-11T04:51:49.487169Z	npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+2026-06-11T04:51:50.796395Z	npm warn deprecated tar@6.2.1: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+2026-06-11T04:51:52.619237Z	npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+2026-06-11T04:51:52.865241Z	npm warn deprecated @cloudflare/next-on-pages@1.13.16: Please use the OpenNext adapter instead: https://opennext.js.org/cloudflare
+2026-06-11T04:52:10.277007Z	
+2026-06-11T04:52:10.2773Z	added 640 packages, and audited 641 packages in 24s
+2026-06-11T04:52:10.277369Z	
+2026-06-11T04:52:10.27744Z	177 packages are looking for funding
+2026-06-11T04:52:10.277501Z	  run `npm fund` for details
+2026-06-11T04:52:10.457178Z	
+2026-06-11T04:52:10.457765Z	25 vulnerabilities (2 low, 15 moderate, 8 high)
+2026-06-11T04:52:10.457952Z	
+2026-06-11T04:52:10.458047Z	To address issues that do not require attention, run:
+2026-06-11T04:52:10.45811Z	  npm audit fix
+2026-06-11T04:52:10.458158Z	
+2026-06-11T04:52:10.458202Z	To address all issues possible (including breaking changes), run:
+2026-06-11T04:52:10.458256Z	  npm audit fix --force
+2026-06-11T04:52:10.458412Z	
+2026-06-11T04:52:10.458796Z	Some issues need review, and may require choosing
+2026-06-11T04:52:10.458874Z	a different dependency.
+2026-06-11T04:52:10.459204Z	
+2026-06-11T04:52:10.460294Z	Run `npm audit` for details.
+2026-06-11T04:52:10.536063Z	Executing user command: npm run pages:build
+2026-06-11T04:52:10.831864Z	
+2026-06-11T04:52:10.832124Z	> flora-demo@0.1.0 pages:build
+2026-06-11T04:52:10.832207Z	> npx @cloudflare/next-on-pages
+2026-06-11T04:52:10.832264Z	
+2026-06-11T04:52:11.517098Z	⚡️ @cloudflare/next-on-pages CLI v.1.13.16
+2026-06-11T04:52:11.685812Z	⚡️ Detected Package Manager: npm (10.9.2)
+2026-06-11T04:52:11.68605Z	⚡️ Preparing project...
+2026-06-11T04:52:11.687432Z	⚡️ Project is ready
+2026-06-11T04:52:11.687574Z	⚡️ Building project...
+2026-06-11T04:52:12.415723Z	▲  Vercel CLI 47.1.4
+2026-06-11T04:52:12.431649Z	▲  > NOTE: The Vercel CLI now collects telemetry regarding usage of the CLI.
+2026-06-11T04:52:12.431908Z	▲  > This information is used to shape the CLI roadmap and prioritize features.
+2026-06-11T04:52:12.431986Z	▲  > You can learn more, including how to opt-out if you'd not like to participate in this program, by visiting the following URL:
+2026-06-11T04:52:12.432289Z	▲  > https://vercel.com/docs/cli/about-telemetry
+2026-06-11T04:52:12.567734Z	▲  WARN! Build not running on Vercel. System environment variables will not be available.
+2026-06-11T04:52:12.775442Z	▲  Installing dependencies...
+2026-06-11T04:52:13.82262Z	▲  up to date in 909ms
+2026-06-11T04:52:13.823186Z	▲  177 packages are looking for funding
+2026-06-11T04:52:13.824059Z	▲  run `npm fund` for details
+2026-06-11T04:52:13.837598Z	▲  Detected Next.js version: 15.4.11
+2026-06-11T04:52:13.84385Z	▲  Running "npm run build"
+2026-06-11T04:52:14.034277Z	▲  > flora-demo@0.1.0 build
+2026-06-11T04:52:14.034693Z	▲  > next build
+2026-06-11T04:52:15.011042Z	▲  Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-06-11T04:52:15.011615Z	▲  This information is used to shape Next.js' roadmap and prioritize features.
+2026-06-11T04:52:15.011827Z	▲  You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2026-06-11T04:52:15.011983Z	▲  https://nextjs.org/telemetry
+2026-06-11T04:52:15.156025Z	▲  ▲ Next.js 15.4.11
+2026-06-11T04:52:15.15637Z	▲  
+2026-06-11T04:52:15.194515Z	▲  Creating an optimized production build ...
+2026-06-11T04:52:26.064083Z	▲  ✓ Compiled successfully in 7.0s
+2026-06-11T04:52:26.070624Z	▲  Linting and checking validity of types ...
+2026-06-11T04:52:26.348729Z	▲  
+2026-06-11T04:52:26.349013Z	▲  We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+2026-06-11T04:52:26.349085Z	▲  The following mandatory changes were made to your tsconfig.json:
+2026-06-11T04:52:26.349133Z	▲  
+2026-06-11T04:52:26.349171Z	▲  	- jsx was set to preserve (next.js implements its own optimized jsx transform)
+2026-06-11T04:52:28.151527Z	▲  ⨯ ESLint: Converting circular structure to JSON     --> starting at object with constructor 'Object'     |     property 'configs' -> object with constructor 'Object'     |     property 'flat' -> object with constructor 'Object'     |     ...     |     property 'plugins' -> object with constructor 'Object'     --- property 'react' closes the circle Referenced from:
+2026-06-11T04:52:30.268106Z	▲  Collecting page data ...
+2026-06-11T04:52:31.709554Z	▲  Generating static pages (0/18) ...
+2026-06-11T04:52:32.466084Z	▲  Generating static pages (4/18) 
+2026-06-11T04:52:32.46667Z	▲  Generating static pages (8/18)
+2026-06-11T04:52:32.467485Z	▲  Generating static pages (13/18)
+2026-06-11T04:52:32.522887Z	▲  ✓ Generating static pages (18/18)
+2026-06-11T04:52:32.885847Z	▲  Finalizing page optimization ...
+2026-06-11T04:52:32.886551Z	▲  Collecting build traces ...
+2026-06-11T04:52:39.400978Z	▲  
+2026-06-11T04:52:39.410569Z	▲  Route (app)                                  Size  First Load JS
+2026-06-11T04:52:39.410901Z	▲  ┌ ○ /                                     11.8 kB         122 kB
+2026-06-11T04:52:39.411001Z	▲  ├ ○ /_not-found                             990 B         101 kB
+2026-06-11T04:52:39.411051Z	▲  ├ ○ /a-propos                             3.49 kB         113 kB
+2026-06-11T04:52:39.411115Z	▲  ├ ○ /blog                                 1.41 kB         109 kB
+2026-06-11T04:52:39.411167Z	▲  ├ ƒ /blog/[slug]                          3.41 kB         111 kB
+2026-06-11T04:52:39.411239Z	▲  ├ ○ /contact                              4.61 kB         107 kB
+2026-06-11T04:52:39.411364Z	▲  ├ ○ /legal                                3.21 kB         106 kB
+2026-06-11T04:52:39.411424Z	▲  ├ ○ /parcours                             4.78 kB         108 kB
+2026-06-11T04:52:39.411457Z	▲  ├ ○ /services/chirurgie-maxillo-faciale   6.62 kB         109 kB
+2026-06-11T04:52:39.411487Z	▲  ├ ○ /services/dents-de-sagesse            5.05 kB         108 kB
+2026-06-11T04:52:39.411526Z	▲  ├ ○ /services/douleur-machoire            4.89 kB         108 kB
+2026-06-11T04:52:39.411554Z	▲  ├ ○ /services/orthognathie                4.67 kB         115 kB
+2026-06-11T04:52:39.41159Z	▲  ├ ○ /symptomes/dents-de-sagesse-poussent  3.58 kB         106 kB
+2026-06-11T04:52:39.411632Z	▲  ├ ○ /symptomes/douleur-machoire           3.42 kB         106 kB
+2026-06-11T04:52:39.411687Z	▲  ├ ○ /symptomes/gonflement                 3.73 kB         107 kB
+2026-06-11T04:52:39.411745Z	▲  ├ ○ /symptomes/ouverture-bouche           5.71 kB         109 kB
+2026-06-11T04:52:39.411806Z	▲  └ ○ /symptomes/traumatisme-facial         5.53 kB         108 kB
+2026-06-11T04:52:39.411848Z	▲  + First Load JS shared by all             99.8 kB
+2026-06-11T04:52:39.411877Z	▲  ├ chunks/4bd1b696-cf72ae8a39fa05aa.js   54.1 kB
+2026-06-11T04:52:39.411917Z	▲  ├ chunks/964-9e7fd12428968086.js        43.7 kB
+2026-06-11T04:52:39.411947Z	▲  └ other shared chunks (total)           1.92 kB
+2026-06-11T04:52:39.411992Z	▲  ○  (Static)   prerendered as static content
+2026-06-11T04:52:39.412071Z	▲  ƒ  (Dynamic)  server-rendered on demand
+2026-06-11T04:52:39.7972Z	▲  Traced Next.js server files in: 278.464ms
+2026-06-11T04:52:39.930689Z	▲  Created all serverless functions in: 134.982ms
+2026-06-11T04:52:39.944022Z	▲  Collected static files (public/, static/, .next/static): 5.622ms
+2026-06-11T04:52:40.00999Z	▲  Build Completed in .vercel/output [27s]
+2026-06-11T04:52:40.190705Z	⚡️ Completed `npx vercel build`.
+2026-06-11T04:52:40.955523Z	
+2026-06-11T04:52:40.95582Z	⚡️ ERROR: Failed to produce a Cloudflare Pages build from the project.
+2026-06-11T04:52:40.955893Z	⚡️ 
+2026-06-11T04:52:40.955935Z	⚡️ 	The following routes were not configured to run with the Edge Runtime:
+2026-06-11T04:52:40.955972Z	⚡️ 	  - /blog/[slug]
+2026-06-11T04:52:40.956006Z	⚡️ 
+2026-06-11T04:52:40.95666Z	⚡️ 	Please make sure that all your non-static routes export the following edge runtime route segment config:
+2026-06-11T04:52:40.956763Z	⚡️ 	  export const runtime = 'edge';
+2026-06-11T04:52:40.956929Z	⚡️ 
+2026-06-11T04:52:40.957006Z	⚡️ 	You can read more about the Edge Runtime on the Next.js documentation:
+2026-06-11T04:52:40.957061Z	⚡️ 	  https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes
+2026-06-11T04:52:40.957097Z	
+2026-06-11T04:52:40.98586Z	Failed: Error while executing user command. Exited with error code: 1
+2026-06-11T04:52:40.992777Z	Failed: build command exited with code: 1
+2026-06-11T04:52:42.059827Z	Failed: error occurred while running build command

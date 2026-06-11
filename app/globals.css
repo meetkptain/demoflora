@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #FAF9F6;
+  color: #44403C;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Medical Template Custom Theme (Prestige Clinique Lumineux) */
+html.theme-medical, html.theme-medical body {
+  background-color: #FAF9F6 !important;
+  color: #44403C !important;
+}
+
+html.theme-medical h1, 
+html.theme-medical h2, 
+html.theme-medical h3, 
+html.theme-medical .font-lora {
+  font-family: 'Playfair Display', serif !important;
+}
+
+html.theme-medical body,
+html.theme-medical button,
+html.theme-medical select,
+html.theme-medical input,
+html.theme-medical textarea {
+  font-family: 'Inter', sans-serif !important;
+}
+
+html.theme-medical .bg-precision-grid {
+  background-image: 
+    linear-gradient(to right, rgba(197, 160, 101, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 160, 101, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+html.theme-medical .bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.012'/%3E%3C/svg%3E");
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+html.theme-medical .animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Styles from demo-styles.css */
+:root {
+  --space-section: 8rem; /* 128px */
+}
+
+.font-lora {
+  font-family: 'Lora', serif;
+}
+
+.bg-precision-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, #E8DFD1 1px, transparent 1px),
+    linear-gradient(to bottom, #E8DFD1 1px, transparent 1px);
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
