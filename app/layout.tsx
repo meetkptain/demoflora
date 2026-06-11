@@ -5,6 +5,32 @@ import { floraContext } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Dr Flora Jullian - Chirurgien Maxillo-Facial à Mulhouse",
   description: "Cabinet de Chirurgie Maxillo-Faciale & Stomatologie du Dr Flora Jullian au GHRMSA Mulhouse. Expertise en chirurgie orthognathique, dents de sagesse et troubles de la mâchoire.",
+  icons: {
+    icon: '/drjullian.png', // Fallback as favicon
+    apple: '/drjullian.png',
+  },
+  openGraph: {
+    title: "Dr Flora Jullian - Chirurgien Maxillo-Facial",
+    description: "Expertise en chirurgie orthognathique et stomatologie au GHRMSA Mulhouse.",
+    url: "https://dr-flora-jullian.fr",
+    siteName: "Dr Flora Jullian",
+    images: [
+      {
+        url: "https://dr-flora-jullian.fr/drjullian.png",
+        width: 800,
+        height: 600,
+        alt: "Portrait du Dr Flora Jullian",
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dr Flora Jullian - Chirurgien Maxillo-Facial à Mulhouse",
+    description: "Cabinet de Chirurgie Maxillo-Faciale & Stomatologie au GHRMSA Mulhouse.",
+    images: ["https://dr-flora-jullian.fr/drjullian.png"],
+  },
 };
 
 export default function RootLayout({
