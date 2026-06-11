@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import { ChevronLeft, GraduationCap, Award, Building2, Heart, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';

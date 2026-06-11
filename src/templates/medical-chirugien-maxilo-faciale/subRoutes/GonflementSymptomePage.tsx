@@ -1,4 +1,4 @@
-'use client';
+
 
 import React from 'react';
 import { ChevronLeft, AlertTriangle, ArrowRight, ShieldAlert, HeartPulse } from 'lucide-react';

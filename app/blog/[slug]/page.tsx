@@ -1,14 +1,12 @@
-'use client';
-
 export const runtime = 'edge';
 
 import React from 'react';
-import { useParams } from 'next/navigation';
 import { floraData, floraContext } from '@/lib/constants';
 import MedicalHeader from '@/components/MedicalHeader';
 import MedicalFooter from '@/components/MedicalFooter';
+import PrintButton from '@/components/PrintButton';
 import Link from 'next/link';
-import { Calendar, Clock, ArrowLeft, Share2, Printer } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react';
 
 const getArticleContent = (slug: string) => {
   switch (slug) {
@@ -89,9 +87,8 @@ const getArticleContent = (slug: string) => {
   }
 };
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const slug = params?.slug as string;
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const post = floraData.posts?.find(p => p.slug === slug);
   const article = getArticleContent(slug);
 
@@ -137,7 +134,7 @@ export default function BlogPostPage() {
               <div className="flex-grow" />
               <div className="flex items-center gap-4">
                 <button className="hover:text-[#8C7355] transition-colors"><Share2 className="w-4 h-4" /></button>
-                <button className="hover:text-[#8C7355] transition-colors" onClick={() => typeof window !== 'undefined' && window.print()}><Printer className="w-4 h-4" /></button>
+                <PrintButton />
               </div>
             </div>
           </header>

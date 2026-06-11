@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { ChevronLeft, AlertTriangle, Clock, ArrowRight, ShieldCheck, Info, HeartPulse, PhoneCall } from 'lucide-react';
 import MedicalHeader from '@/components/MedicalHeader';

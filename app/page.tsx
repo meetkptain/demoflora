@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import MedicalHeader from '@/components/MedicalHeader';
 import MedicalPublicPage from '@/components/MedicalPublicPage';

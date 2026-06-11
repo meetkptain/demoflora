@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Shield, MapPin, Phone, Mail } from 'lucide-react';
 import { SiteContext } from '../lib/types';

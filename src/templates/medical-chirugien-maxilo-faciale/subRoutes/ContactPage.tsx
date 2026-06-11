@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { ChevronLeft, MapPin, Phone, Mail, Clock, ArrowRight, Car, Bus, Train, ExternalLink, Calendar } from 'lucide-react';
 import { SiteContext } from "@/lib/types";

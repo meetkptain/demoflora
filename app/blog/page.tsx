@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { floraData, floraContext } from '@/lib/constants';
 import MedicalHeader from '@/components/MedicalHeader';

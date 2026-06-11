@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { ChevronLeft, ArrowRight, ShieldCheck, Activity, Brain, Heart, Stethoscope, Microscope, Beaker, Users, Calendar, Clock, MapPin } from 'lucide-react';
 import MedicalHeader from '@/components/MedicalHeader';

@@ -1,4 +1,4 @@
-'use client';
+
 
 import React from 'react';
 import { ChevronLeft, ArrowRight, ShieldCheck, Activity, Microscope, Beaker } from 'lucide-react';

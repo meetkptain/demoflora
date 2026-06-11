@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import { ChevronLeft, Clock, AlertTriangle, ArrowRight, CheckCircle2, ShieldCheck, Stethoscope, Calendar } from 'lucide-react';
