@@ -1,36 +1,52 @@
 import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { floraContext } from "@/lib/constants";
+import { site } from "@/lib/site";
+import { seo } from "@/lib/seo";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Dr Flora Jullian - Chirurgien Maxillo-Facial à Mulhouse",
   description: "Cabinet de Chirurgie Maxillo-Faciale & Stomatologie du Dr Flora Jullian au GHRMSA Mulhouse. Expertise en chirurgie orthognathique, dents de sagesse et troubles de la mâchoire.",
+  alternates: {
+    canonical: seo.baseUrl,
+  },
   icons: {
-    icon: '/drjullian.png', // Fallback as favicon
-    apple: '/drjullian.png',
+    icon: site.doctor.photoUrl,
+    apple: site.doctor.photoUrl,
   },
   openGraph: {
     title: "Dr Flora Jullian - Chirurgien Maxillo-Facial",
     description: "Expertise en chirurgie orthognathique et stomatologie au GHRMSA Mulhouse.",
-    url: "https://dr-flora-jullian.fr",
-    siteName: "Dr Flora Jullian",
-    images: [
-      {
-        url: "https://dr-flora-jullian.fr/drjullian.png",
-        width: 800,
-        height: 600,
-        alt: "Portrait du Dr Flora Jullian",
-      },
-    ],
-    locale: "fr_FR",
+    url: seo.baseUrl,
+    siteName: site.businessName,
+    images: [{
+      url: `${seo.baseUrl}${seo.defaultOgImage}`,
+      width: seo.defaultOgWidth,
+      height: seo.defaultOgHeight,
+      alt: `Portrait du ${site.businessName}`,
+    }],
+    locale: seo.locale,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dr Flora Jullian - Chirurgien Maxillo-Facial à Mulhouse",
+    title: `${site.businessName} - Chirurgien Maxillo-Facial à Mulhouse`,
     description: "Cabinet de Chirurgie Maxillo-Faciale & Stomatologie au GHRMSA Mulhouse.",
-    images: ["https://dr-flora-jullian.fr/drjullian.png"],
+    images: [`${seo.baseUrl}${seo.defaultOgImage}`],
   },
+  robots: seo.robots,
 };
 
 export default function RootLayout({
@@ -38,68 +54,83 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  const today = new Date().toISOString().split('T')[0];
+
+  const graphSchema = {
     "@context": "https://schema.org",
-    "@type": "Physician",
-    "name": floraContext.businessName,
-    "description": "Chirurgien Maxillo-Facial et Stomatologue au GHRMSA Mulhouse. Expertise en chirurgie orthognathique, dents de sagesse et traumatologie faciale.",
-    "image": `https://dr-flora-jullian.fr${floraContext.theme.heroImageUrl}`,
-    "medicalSpecialty": "MaxillofacialSurgery",
-    "telephone": floraContext.contact.phone,
-    "email": floraContext.contact.email,
-    "url": "https://dr-flora-jullian.fr",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "20 Avenue du Docteur René Laennec",
-      "addressLocality": "Mulhouse",
-      "postalCode": "68100",
-      "addressRegion": "Grand Est",
-      "addressCountry": "FR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 47.725,
-      "longitude": 7.324
-    },
-    "hospitalAffiliation": {
-      "@type": "Hospital",
-      "name": "GHRMSA - Hôpital Emile Muller Mulhouse",
-      "address": "20 Avenue du Docteur René Laennec, 68100 Mulhouse"
-    },
-    "priceRange": "$$",
-    "openingHoursSpecification": [
+    "@graph": [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        "opens": "08:30",
-        "closes": "16:30"
+        "@type": "Physician",
+        "@id": `${seo.baseUrl}/#physician`,
+        name: site.businessName,
+        description: "Chirurgien Maxillo-Facial et Stomatologue au GHRMSA Mulhouse. Expertise en chirurgie orthognathique, dents de sagesse et traumatologie faciale.",
+        image: `${seo.baseUrl}${seo.defaultOgImage}`,
+        medicalSpecialty: "MaxillofacialSurgery",
+        telephone: site.contact.phone,
+        email: site.contact.email,
+        url: seo.baseUrl,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: site.address.street,
+          addressLocality: site.address.city,
+          postalCode: site.address.postalCode,
+          addressRegion: site.address.region,
+          addressCountry: site.address.country,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: site.geo.lat,
+          longitude: site.geo.lng,
+        },
+        hospitalAffiliation: {
+          "@type": "Hospital",
+          name: site.hospital.name,
+          address: site.hospital.address,
+        },
+        priceRange: "$$",
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+            opens: "08:30",
+            closes: "16:30",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Friday",
+            opens: "08:30",
+            closes: "12:00",
+          },
+        ],
+        sameAs: seo.sameAs,
+        knowsAbout: seo.knowsAbout,
       },
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Friday",
-        "opens": "08:30",
-        "closes": "12:00"
-      }
+        "@type": "WebSite",
+        "@id": `${seo.baseUrl}/#website`,
+        name: `${site.businessName} - Chirurgien Maxillo-Facial`,
+        url: seo.baseUrl,
+        description: "Cabinet de Chirurgie Maxillo-Faciale & Stomatologie au GHRMSA Mulhouse.",
+        dateModified: today,
+      },
+      {
+        "@type": "SpeakableSpecification",
+        "@id": `${seo.baseUrl}/#speakable`,
+        cssSelector: ["h1", "h2", ".faq-question"],
+      },
     ],
-    "sameAs": [
-      "https://www.ghrmsa.fr",
-      "https://www.conseil-national.medecin.fr"
-    ],
-    "knowsAbout": [
-      "Chirurgie Orthognathique",
-      "Dents de sagesse",
-      "Traumatologie faciale",
-      "Stomatologie",
-      "Chirurgie maxillo-faciale"
-    ]
   };
 
   return (
-    <html lang="fr" className="theme-medical scroll-smooth">
+    <html lang={seo.lang} className={`theme-medical scroll-smooth ${inter.variable} ${playfair.variable}`}>
+      <head>
+        <link rel="alternate" type="application/rss+xml" title="Dr Flora Jullian — Blog" href={`${seo.baseUrl}/blog/rss.xml`} />
+      </head>
       <body className="antialiased bg-[#FAF9F6] text-[#44403C]">
         <script
+          id="graph-schema"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }}
         />
         {children}
       </body>

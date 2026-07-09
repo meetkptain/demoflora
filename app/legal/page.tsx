@@ -1,8 +1,19 @@
+import { Metadata } from 'next';
 import React from 'react';
+import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import MedicalHeader from '@/components/MedicalHeader';
 import MedicalFooter from '@/components/MedicalFooter';
 import { floraContext, floraData } from '@/lib/constants';
+import { seo } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Mentions Légales - Dr Flora Jullian | Chirurgien Maxillo-Facial Mulhouse',
+  description: 'Mentions légales, protection des données (RGPD) et déontologie médicale du site du Dr Flora Jullian, chirurgien maxillo-facial au GHRMSA Mulhouse.',
+  alternates: {
+    canonical: `${seo.baseUrl}/legal`,
+  },
+};
 
 export default function LegalPage() {
   return (
@@ -16,17 +27,17 @@ export default function LegalPage() {
         <section className="relative pt-40 pb-24 px-6 z-10 border-b border-[#E8DFD1]/60">
           <div className="max-w-4xl mx-auto">
             <nav className="mb-12">
-              <a href="/" className="group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#A67A3D] hover:text-[#241F1A]">
+              <Link href="/" className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#A67A3D] hover:text-[#241F1A]">
                 <ChevronLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
                 Retour
-              </a>
+              </Link>
             </nav>
             <h1 className="font-lora text-6xl font-medium tracking-tight text-[#241F1A]">Mentions <span className="opacity-40 italic">Légales</span></h1>
           </div>
         </section>
 
         <section className="relative z-10 max-w-4xl mx-auto px-6 py-24">
-          <div className="prose prose-stone max-w-none text-[#5A534A] space-y-16">
+          <div className="prose prose-stone max-w-none text-[#423C35] space-y-16">
             
             <div className="space-y-6">
               <h2 className="font-lora text-3xl text-[#241F1A] border-b border-[#E8DFD1] pb-4">1. Présentation du site</h2>

@@ -45,7 +45,7 @@ export default function PatientTimeline() {
             <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${activeStep === step.number ? 'bg-white border-[#C5A065] text-[#241F1A] scale-110 shadow-xl' : activeStep > step.number ? 'bg-[#FAF9F6] border-[#C5A065]/40 text-[#C5A065]' : 'bg-white border-[#E8DFD1] text-[#9B8B77]'}`}>
               <step.icon className="w-5 h-5" />
             </div>
-            <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 text-[9px] font-black uppercase tracking-[0.2em] whitespace-nowrap ${activeStep === step.number ? 'text-[#241F1A]' : 'text-[#9B8B77]'}`}>
+            <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 text-[11px] font-black uppercase tracking-[0.2em] whitespace-nowrap ${activeStep === step.number ? 'text-[#241F1A]' : 'text-[#9B8B77]'}`}>
               {step.number === 1 ? 'Expertise' : step.number === 2 ? 'Précision' : 'Suivi'}
             </span>
           </button>
@@ -58,8 +58,8 @@ export default function PatientTimeline() {
             </div>
             <div className="space-y-4">
               <h3 className="text-3xl font-medium font-lora text-[#241F1A]">{currentStepData.title}</h3>
-              <p className="text-base text-[#5A534A] leading-relaxed">{currentStepData.fullDesc}</p>
-              <div className="flex items-center gap-2 text-[9px] font-black text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
+              <p className="text-base text-[#423C35] leading-relaxed">{currentStepData.fullDesc}</p>
+              <div className="flex items-center gap-2 text-[11px] font-black text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
                 <ShieldCheck className="w-3.5 h-3.5" /> Sécurité GHRMSA
               </div>
             </div>

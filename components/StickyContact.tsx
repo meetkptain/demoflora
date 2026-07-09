@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Clock, AlertTriangle, FileText } from 'lucide-react';
+import { Clock, AlertTriangle, Mail } from 'lucide-react';
 
 interface Props {
   phone: string;
@@ -49,7 +49,7 @@ export default function StickyContact({ phone, email }: Props) {
   return (
     <div className="fixed bottom-6 left-6 right-6 z-[110] md:hidden">
       <div className={`flex items-center gap-3 rounded-full p-2 backdrop-blur-md shadow-2xl ${isSecretariatOpen ? 'bg-[#241F1A]/95' : 'bg-[#EA4335]/95'}`}>
-        <a href={`tel:${isSecretariatOpen ? phone : '15'}`} className="flex-1 flex items-center justify-center gap-3 rounded-full bg-white px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-[#241F1A]">
+        <a href={`tel:${isSecretariatOpen ? phone : '15'}`} className="flex-1 flex items-center justify-center gap-3 rounded-full bg-white px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-[#241F1A]">
           {isSecretariatOpen ? (
             <>
               <Clock className="h-4 w-4" /> Appeler Secrétariat
@@ -60,8 +60,8 @@ export default function StickyContact({ phone, email }: Props) {
             </>
           )}
         </a>
-        <a href={`mailto:${email}`} className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white">
-          <FileText className="h-5 w-5" />
+        <a href={`mailto:${email}`} className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white" aria-label="Envoyer un email">
+          <Mail className="h-5 w-5" />
         </a>
       </div>
     </div>

@@ -1,0 +1,18 @@
+# robots.txt — Dr Flora Jullian
+# https://dr-flora-jullian.fr
+
+User-agent: *
+Allow: /
+
+# Bloquer les crawlers d'entraînement AI (autoriser la lecture)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://dr-flora-jullian.fr/sitemap.xml

@@ -1,17 +1,66 @@
-import React from 'react';
+import { Metadata } from 'next';
+import Image from 'next/image';
 import { floraData, floraContext } from '@/lib/constants';
 import MedicalHeader from '@/components/MedicalHeader';
 import MedicalFooter from '@/components/MedicalFooter';
 import Link from 'next/link';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
+import { seo } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Actualités & Expertise - Dr Flora Jullian',
+  description: 'Retrouvez nos articles sur les dernières avancées en chirurgie maxillo-faciale, conseils pré-opératoires et innovations technologiques au GHRMSA Mulhouse.',
+  alternates: {
+    canonical: `${seo.baseUrl}/blog`,
+  },
+  openGraph: {
+    title: 'Actualités & Expertise — Dr Flora Jullian',
+    description: 'Retrouvez nos articles sur les dernières avancées en chirurgie maxillo-faciale au GHRMSA Mulhouse.',
+    images: [{ url: `${seo.baseUrl}/drjullian.webp`, width: 800, height: 800, alt: 'Dr Flora Jullian — Blog' }],
+    type: 'website',
+    locale: seo.locale,
+  },
+};
 
 export default function BlogListPage() {
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Blog',
+        '@id': `${seo.baseUrl}/blog#blog`,
+        name: 'Actualités & Expertise - Dr Flora Jullian',
+        description: 'Articles sur la chirurgie maxillo-faciale au GHRMSA Mulhouse.',
+        url: `${seo.baseUrl}/blog`,
+        blogPost: floraData.posts?.map((p) => ({
+          '@type': 'BlogPosting',
+          '@id': `${seo.baseUrl}/blog/${p.slug}#post`,
+          headline: p.title,
+          datePublished: p.published_at,
+          url: `${seo.baseUrl}/blog/${p.slug}`,
+        })) ?? [],
+      },
+      {
+        '@type': 'CollectionPage',
+        '@id': `${seo.baseUrl}/blog#collection`,
+        url: `${seo.baseUrl}/blog`,
+        name: 'Actualités & Expertise - Dr Flora Jullian',
+        isPartOf: { '@id': `${seo.baseUrl}/` },
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-[#FDFCFB] relative overflow-hidden">
       {/* Texture Layer */}
       <div className="absolute inset-0 bg-precision-grid opacity-[0.03] pointer-events-none" />
       <div className="absolute inset-0 bg-noise opacity-[0.02] pointer-events-none" />
 
+      <script
+        id="blog-listing-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       <MedicalHeader context={floraContext} data={floraData} />
 
       <section className="relative pt-32 pb-20 px-4">
@@ -34,13 +83,15 @@ export default function BlogListPage() {
                 className="group flex flex-col h-full bg-white border border-[#E8DFD1] hover:border-[#8C7355] transition-all duration-500 rounded-sm overflow-hidden"
               >
                 <div className="aspect-[16/9] overflow-hidden relative">
-                  <img 
+                  <Image 
                     src={post.featured_image_url} 
                     alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] font-medium text-[#8C7355] border border-[#E8DFD1]">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[11px] uppercase tracking-[0.2em] font-medium text-[#8C7355] border border-[#E8DFD1]">
                       {post.category.replace('_', ' ')}
                     </span>
                   </div>

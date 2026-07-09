@@ -42,7 +42,7 @@ export default function EeatTrustGrid({ rppsNumber, conventionnement }: Props) {
         <div key={item.id} className="p-5 rounded-2xl border border-[#E8DFD1] bg-[#FAF9F6] space-y-2">
           <item.icon className="h-5 w-5 text-[#0891B2]" />
           <div>
-            <div className="text-[9px] font-bold uppercase tracking-widest text-[#A67A3D]">{item.title}</div>
+            <div className="text-[11px] font-bold uppercase tracking-widest text-[#A67A3D]">{item.title}</div>
             <div className="text-[11px] font-bold text-[#241F1A] leading-tight">{item.subtitle}</div>
           </div>
         </div>

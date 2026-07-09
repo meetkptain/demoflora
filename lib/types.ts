@@ -17,6 +17,43 @@ export interface MedicalService {
   name: string;
   slug: string;
   description: string;
+  category?: string;
+  details?: string;
+  recovery?: string;
+  risks?: string[];
+  timeline?: { day: string; event: string }[];
+  priceRange?: string;
+  isReimbursed?: boolean;
+  anesthesia?: string;
+  location?: string;
+  stay?: string;
+  fee?: number;
+  brss?: number;
+  faq?: { question: string; answer: string }[];
+  relatedSymptoms?: string[];
+  indications?: string[];
+  outcome?: string;
+  preparation?: string;
+}
+
+export interface MedicalSymptom {
+  id: string;
+  slug: string;
+  title: string;
+  headline: string;
+  metaDescription: string;
+  intro: string;
+  causes: string[];
+  consultSigns: string[];
+  urgencyLevel: 'programmed' | 'soon' | 'urgent';
+  category: 'dents-gencives' | 'machoire-atm' | 'visage-trauma' | 'chirurgie-cutanee' | 'glandes-cou';
+  faq: { question: string; answer: string }[];
+  relatedSymptoms?: string[];
+  relatedIntervention?: {
+    slug: string;
+    label: string;
+    description: string;
+  };
 }
 
 export interface MedicalDoctor {
@@ -26,6 +63,16 @@ export interface MedicalDoctor {
   photoUrl?: string | null;
   qualifications?: string[];
   experience?: string[];
+}
+
+export interface MedicalPost {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  featured_image_url: string;
+  reading_time_minutes: number;
+  published_at: string;
 }
 
 export interface MedicalHour {
@@ -39,6 +86,8 @@ export interface MedicalData {
   rppsNumber?: string;
   conventionnement?: string;
   slogan?: string;
+  consultationFee?: number;     // Honoraires PH de la première consultation
+  consultationBrss?: number;    // Base de remboursement Sécu de la consultation
   doctors: MedicalDoctor[];
   services: MedicalService[];
   hours: MedicalHour[];
@@ -46,5 +95,5 @@ export interface MedicalData {
     mission: string;
     tips: { id: string; title: string; content: string; }[];
   };
-  posts?: any[];
+  posts?: MedicalPost[];
 }

@@ -1,0 +1,52 @@
+export const seo = {
+  baseUrl: "https://dr-flora-jullian.fr",
+  lang: "fr",
+  locale: "fr_FR",
+  defaultOgImage: "/drjullian.webp",
+  defaultOgWidth: 800,
+  defaultOgHeight: 800,
+  sameAs: [
+    "https://www.ghrmsa.fr",
+    "https://www.conseil-national.medecin.fr",
+  ],
+  knowsAbout: [
+    "Chirurgie Orthognathique",
+    "Dents de sagesse",
+    "Traumatologie faciale",
+    "Stomatologie",
+    "Chirurgie maxillo-faciale",
+    "Chirurgie esthétique du visage",
+    "Dermatochirurgie",
+  ],
+  searchAction: {
+    target: "https://dr-flora-jullian.fr/recherche?q={search_term_string}",
+  },
+  sitemap: {
+    priorities: {
+      home: 1.0,
+      interventions: 0.8,
+      symptomes: 0.8,
+      apropos: 0.7,
+      blog: 0.7,
+      parcours: 0.7,
+      tarifs: 0.7,
+      contact: 0.6,
+      legal: 0.2,
+      intervention: 0.75,
+      symptome: 0.65,
+      blogPost: 0.55,
+    } as Record<string, number>,
+    changeFreq: {
+      home: 'weekly' as const,
+      blog: 'weekly' as const,
+      interventions: 'weekly' as const,
+      symptomes: 'weekly' as const,
+      default: 'monthly' as const,
+      legal: 'yearly' as const,
+    } as Record<string, 'weekly' | 'monthly' | 'yearly'>,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};

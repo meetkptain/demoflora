@@ -1,10 +1,56 @@
+import { Metadata } from 'next';
 import React from 'react';
+import Link from 'next/link';
 import { ChevronLeft, MapPin, Phone, Mail, Clock, ArrowRight, Car, Bus, Train, ExternalLink, Calendar } from 'lucide-react';
 import MedicalHeader from '@/components/MedicalHeader';
+import { seo } from '@/lib/seo';
 import MedicalFooter from '@/components/MedicalFooter';
 import { floraContext, floraData } from '@/lib/constants';
 
+export const metadata: Metadata = {
+  title: 'Contact & Accès - Dr Flora Jullian | GHRMSA Mulhouse',
+  description: 'Coordonnées, plan d\'accès et horaires du secrétariat du Dr Flora Jullian, chirurgien maxillo-facial au GHRMSA - Hôpital Emile Muller, 20 Av. Laennec, 68100 Mulhouse.',
+  alternates: {
+    canonical: `${seo.baseUrl}/contact`,
+  },
+};
+
 export default function ContactPage() {
+  const contactSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'MedicalClinic',
+        '@id': `${seo.baseUrl}/contact#clinic`,
+        name: 'Dr Flora Jullian — GHRMSA Mulhouse',
+        description: 'Cabinet de Chirurgie Maxillo-Faciale au GHRMSA - Hôpital Emile Muller',
+        url: `${seo.baseUrl}/contact`,
+        telephone: floraContext.contact.phone,
+        email: floraContext.contact.email,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '20 Avenue du Docteur René Laennec',
+          addressLocality: 'Mulhouse',
+          postalCode: '68100',
+          addressRegion: 'Grand Est',
+          addressCountry: 'FR',
+        },
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '08:30', closes: '16:30' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Friday', opens: '08:30', closes: '12:00' },
+        ],
+        parentOrganization: { '@type': 'Hospital', name: 'GHRMSA - Hôpital Emile Muller' },
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: floraContext.contact.phone,
+        contactType: 'medical',
+        availableLanguage: ['French', 'English'],
+        areaServed: ['Mulhouse', 'Haut-Rhin', 'Grand Est', 'Belfort', 'Colmar'],
+      },
+    ],
+  };
+
   return (
     <main className="theme-medical">
       <MedicalHeader context={floraContext} data={floraData} />
@@ -17,21 +63,21 @@ export default function ContactPage() {
         <section className="relative pt-40 pb-24 px-6 border-b border-[#E8DFD1]/60 z-10">
           <div className="max-w-7xl mx-auto">
             <nav className="mb-12">
-              <a href="/" className="group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-[#A67A3D] hover:text-[#241F1A] transition-colors">
+              <Link href="/" className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#A67A3D] hover:text-[#241F1A] transition-colors">
                 <ChevronLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
                 Retour à l&apos;accueil
-              </a>
+              </Link>
             </nav>
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:items-end">
               <div className="lg:col-span-8 space-y-8">
                 <div className="inline-flex items-center gap-3 rounded-full border border-[#0891B2]/20 bg-[#0891B2]/5 px-5 py-2 text-[#0891B2]">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Plan d&apos;accès & Contact</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.3em]">Plan d&apos;accès & Contact</span>
                 </div>
                 <h1 className="font-lora text-[clamp(48px,6vw,84px)] font-medium leading-[0.95] tracking-tight text-[#241F1A]">
                   Nous <span className="opacity-60 italic">contacter</span>
                 </h1>
-                <p className="text-xl text-[#5A534A] max-w-2xl leading-relaxed">
+                <p className="text-xl text-[#423C35] max-w-2xl leading-relaxed">
                   Le cabinet du Dr Flora Jullian est situé au sein du GHRMSA Mulhouse. Notre secrétariat est à votre disposition pour toute demande de rendez-vous ou renseignement.
                 </p>
               </div>
@@ -47,9 +93,9 @@ export default function ContactPage() {
                 <Phone className="w-6 h-6" />
               </div>
               <div className="space-y-2">
-                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#C5A065]">Téléphone</h4>
+                <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#C5A065]">Téléphone</h4>
                 <p className="text-2xl font-lora text-[#241F1A]">{floraContext.contact.phone}</p>
-                <p className="text-xs text-[#5A534A]">Secrétariat ORL / Maxillo-Faciale</p>
+                <p className="text-xs text-[#423C35]">Secrétariat Maxillo-Facial</p>
               </div>
             </div>
 
@@ -58,9 +104,9 @@ export default function ContactPage() {
                 <Mail className="w-6 h-6" />
               </div>
               <div className="space-y-2">
-                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#C5A065]">Email</h4>
+                <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#C5A065]">Email</h4>
                 <p className="text-xl font-lora text-[#241F1A] break-all">{floraContext.contact.email}</p>
-                <p className="text-xs text-[#5A534A]">Pour l&apos;envoi de documents médicaux</p>
+                <p className="text-xs text-[#423C35]">Pour l&apos;envoi de documents médicaux</p>
               </div>
             </div>
 
@@ -69,7 +115,7 @@ export default function ContactPage() {
                 <Clock className="w-6 h-6" />
               </div>
               <div className="space-y-4">
-                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#C5A065]">Heures de Secrétariat</h4>
+                <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#C5A065]">Heures de Secrétariat</h4>
                 <div className="space-y-3">
                   {floraData.hours.map((h, i) => (
                     <div key={i} className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
@@ -88,23 +134,17 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-7 space-y-8">
               <div className="aspect-video w-full rounded-[3rem] bg-[#E8DFD1]/30 border border-[#E8DFD1] relative overflow-hidden group">
-                {/* Placeholder for map */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-[#A67A3D] space-y-4">
-                    <MapPin className="w-12 h-12 opacity-20 group-hover:scale-110 transition-transform duration-700" />
-                    <p className="text-[10px] font-black uppercase tracking-widest opacity-40">Module Carte Interactif</p>
-                </div>
-                {/* Mock map UI */}
-                <div className="absolute bottom-8 left-8 p-6 rounded-2xl bg-white shadow-xl border border-[#E8DFD1] max-w-xs space-y-4">
-                    <p className="text-xs font-bold text-[#241F1A] leading-relaxed">{floraContext.contact.address}</p>
-                    <a 
-                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(floraContext.contact.address)}`} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0891B2] hover:underline"
-                    >
-                        Ouvrir dans Google Maps <ExternalLink className="w-3 h-3" />
-                    </a>
-                </div>
+                <iframe
+                  title="Carte Cabinet Dr Flora Jullian"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2685.2891660161405!2d7.3117367!3d47.7370351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47919be8f94676e1%3A0xa19cbefc4c01d4a0!2s20%20Av.%20du%20Docteur%20Ren%C3%A9%20Laennec%2C%2068100%20Mulhouse!5e0!3m2!1sfr!2sfr!4v1717800000000!5m2!1sfr!2sfr"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0 w-full h-full"
+                ></iframe>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -115,10 +155,35 @@ export default function ContactPage() {
                 ].map((item, i) => (
                   <div key={i} className="p-6 rounded-2xl bg-white border border-[#E8DFD1] space-y-3">
                     <div className="text-[#A67A3D]">{item.icon}</div>
-                    <h5 className="font-bold text-[#241F1A] uppercase tracking-wider text-[10px]">{item.title}</h5>
-                    <p className="text-[11px] text-[#5A534A] leading-relaxed">{item.desc}</p>
+                    <h5 className="font-bold text-[#241F1A] uppercase tracking-wider text-[11px]">{item.title}</h5>
+                    <p className="text-[11px] text-[#423C35] leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* Espace Correspondants */}
+              <div className="mt-16 p-10 rounded-[3rem] border border-[#0891B2]/20 bg-[#0891B2]/[0.02] space-y-6">
+                <div className="flex items-center gap-4 text-[#0891B2]">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.3em]">Réservé aux Professionnels</span>
+                </div>
+                <h3 className="font-lora text-3xl font-medium text-[#241F1A]">Espace Correspondants & Confrères</h3>
+                <p className="text-sm text-[#423C35] leading-relaxed">
+                  Orthodontistes, chirurgiens-dentistes et médecins traitants : pour faciliter la prise en charge coordonnée de vos patients, veuillez nous transmettre les pièces cliniques requises.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                  <div className="space-y-2">
+                    <h5 className="font-bold text-[11px] uppercase tracking-wider text-[#241F1A]">Bilan Orthognathique</h5>
+                    <p className="text-[11px] text-[#423C35] leading-relaxed">
+                      Veuillez transmettre la téléradiographie de profil, le panoramique dentaire récent, ainsi que vos objectifs ou plans de traitement.
+                    </p>
+                  </div>
+                  <div className="space-y-2">
+                    <h5 className="font-bold text-[11px] uppercase tracking-wider text-[#241F1A]">Canaux sécurisés</h5>
+                    <p className="text-[11px] text-[#423C35] leading-relaxed">
+                      Pour l&apos;envoi sécurisé de données médicales (format DICOM / courriers), privilégiez notre adresse de messagerie sécurisée ou contactez notre ligne dédiée.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -126,10 +191,10 @@ export default function ContactPage() {
               <div className="space-y-8">
                 <div className="flex items-center gap-4">
                   <div className="h-px w-12 bg-[#C5A065]/40"/>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#A67A3D]">Venir au cabinet</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#A67A3D]">Venir au cabinet</span>
                 </div>
                 <h2 className="font-lora text-4xl font-medium text-[#241F1A]">Précisions sur <br /> la localisation</h2>
-                <div className="prose prose-stone text-[#5A534A] space-y-6">
+                <div className="prose prose-stone text-[#423C35] space-y-6">
                   <p className="text-base leading-relaxed">
                     Le secrétariat est situé au <strong>Rez-de-Chaussée</strong> du bâtiment principal (Hôpital Emile Muller). 
                   </p>
@@ -144,10 +209,10 @@ export default function ContactPage() {
                   <Calendar className="w-6 h-6" />
                   <h4 className="font-bold uppercase tracking-[0.1em] text-xs">Prendre rendez-vous</h4>
                 </div>
-                <p className="text-sm text-[#5A534A] leading-relaxed">
+                <p className="text-sm text-[#423C35] leading-relaxed">
                   Pour une première consultation, merci de vous munir de votre carte vitale, de votre courrier d&apos;adressage ainsi que de vos examens radiologiques (Panoramique dentaire, Scanner ou Cone Beam).
                 </p>
-                <a href={`tel:${floraContext.contact.phone}`} className="group flex items-center justify-between w-full rounded-full bg-[#241F1A] px-8 py-5 text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-[#0891B2]">
+                <a href={`tel:${floraContext.contact.phone}`} className="group flex items-center justify-between w-full rounded-full bg-[#241F1A] px-8 py-5 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-[#0891B2]">
                   Appeler maintenant <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
@@ -156,6 +221,11 @@ export default function ContactPage() {
         </section>
       </div>
 
+      <script
+        id="contact-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
       <MedicalFooter context={floraContext} data={floraData} />
     </main>
   );

@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // Cloudflare Pages ne supporte pas nativement l'optimisation d'images Next.js
   },
+  async redirects() {
+    return [
+      { source: '/services', destination: '/interventions', permanent: true },
+      { source: '/services/:slug', destination: '/interventions/:slug', permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

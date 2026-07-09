@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import { Shield, MapPin, Phone, Mail } from 'lucide-react';
 import { SiteContext } from '../lib/types';
+import { site } from '@/lib/site';
 
 interface Props {
   context: SiteContext;
@@ -9,6 +11,7 @@ interface Props {
 
 export default function MedicalFooter({ context }: Props) {
   const year = new Date().getFullYear();
+  const buildDate = '2026-07';
 
   return (
     <footer className="text-xs py-24 px-6 border-t transition-all duration-300 bg-[#241F1A] text-[#FAF9F6]/60 border-white/5">
@@ -19,25 +22,27 @@ export default function MedicalFooter({ context }: Props) {
             <span className="font-semibold block text-sm font-lora text-[#FAF9F6] tracking-wide">
               {context.businessName}
             </span>
-            <span className="block text-[#C5A065] text-[10px] font-bold uppercase tracking-[0.2em]">Praticienne Hospitalière</span>
+            <span className="block text-[#C5A065] text-[11px] font-bold uppercase tracking-[0.2em]">Praticienne Hospitalière</span>
             <div className="space-y-2 pt-2">
-              <span className="block font-mono text-[#FAF9F6]/30 uppercase tracking-tighter">N° RPPS : 10101603602</span>
+              <span className="block font-mono text-[#FAF9F6]/30 uppercase tracking-tighter">N° RPPS : {site.rpps}</span>
             </div>
           </div>
           <div className="space-y-4 pt-4 border-t border-white/5">
-            <span className="font-bold block uppercase text-[10px] tracking-widest text-[#C5A065]">Plan du site</span>
-            <ul className="space-y-2 text-[9px] font-bold uppercase tracking-widest">
-              <li><a href="/parcours" className="hover:text-[#FAF9F6] transition-colors">Parcours de soins</a></li>
-              <li><a href="/a-propos" className="hover:text-[#FAF9F6] transition-colors">À Propos</a></li>
-              <li><a href="/blog" className="hover:text-[#FAF9F6] transition-colors">Journal Clinique</a></li>
-              <li><a href="/contact" className="hover:text-[#FAF9F6] transition-colors">Contact & Accès</a></li>
+            <span className="font-bold block uppercase text-[11px] tracking-widest text-[#C5A065]">Plan du site</span>
+            <ul className="space-y-2 text-[11px] font-bold uppercase tracking-widest">
+              <li><Link href="/symptomes" className="hover:text-[#FAF9F6] transition-colors">Symptômes</Link></li>
+              <li><Link href="/interventions" className="hover:text-[#FAF9F6] transition-colors">Interventions</Link></li>
+              <li><Link href="/parcours" className="hover:text-[#FAF9F6] transition-colors">Parcours de soins</Link></li>
+              <li><Link href="/a-propos" className="hover:text-[#FAF9F6] transition-colors">À Propos</Link></li>
+              <li><Link href="/blog" className="hover:text-[#FAF9F6] transition-colors">Journal Clinique</Link></li>
+              <li><Link href="/contact" className="hover:text-[#FAF9F6] transition-colors">Contact & Accès</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Column 2 — Localisation */}
         <div className="space-y-4">
-          <span className="font-bold block uppercase text-[10px] tracking-widest text-[#C5A065]">
+          <span className="font-bold block uppercase text-[11px] tracking-widest text-[#C5A065]">
             Localisation Hospitalière
           </span>
           <div className="space-y-4">
@@ -50,7 +55,7 @@ export default function MedicalFooter({ context }: Props) {
 
         {/* Column 3 — Contact Direct */}
         <div className="space-y-4">
-          <span className="font-bold block uppercase text-[10px] tracking-widest text-[#C5A065]">
+          <span className="font-bold block uppercase text-[11px] tracking-widest text-[#C5A065]">
             Secrétariat
           </span>
           <div className="space-y-3">
@@ -67,7 +72,7 @@ export default function MedicalFooter({ context }: Props) {
 
         {/* Column 4 — Horaires */}
         <div className="space-y-4">
-          <span className="font-bold block uppercase text-[10px] tracking-widest text-[#C5A065]">
+          <span className="font-bold block uppercase text-[11px] tracking-widest text-[#C5A065]">
             Horaires de consultation
           </span>
           <ul className="space-y-2">
@@ -84,11 +89,13 @@ export default function MedicalFooter({ context }: Props) {
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-4 border-white/5 text-[#FAF9F6]/20">
+      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-4 border-white/5 text-[#FAF9F6]/50">
         <span>© {year} {context.businessName} — Tous droits réservés</span>
-        <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest">
-          <a href="/legal" className="hover:text-[#FAF9F6]/40 transition-colors">Mentions Légales</a>
-          <span>Inscrit à l'Ordre des Médecins</span>
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] font-bold uppercase tracking-widest">
+          <time dateTime={buildDate} className="text-[#FAF9F6]/30">Mis à jour juillet 2026</time>
+          <Link href="/legal" className="hover:text-[#FAF9F6]/70 transition-colors">Mentions Légales</Link>
+          <span>Inscrit à l&apos;Ordre des Médecins</span>
+          <a href="https://www.sfscmfco.fr" target="_blank" rel="noopener noreferrer" className="hover:text-[#FAF9F6]/70 transition-colors">SFSCMFCO</a>
           <span>Données protégées RGPD</span>
         </div>
       </div>
