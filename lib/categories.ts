@@ -126,3 +126,11 @@ export function slugify(value: string): string {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
+
+export function formatPriceRange(s: { fee?: number; feeMax?: number; isReimbursed?: boolean }): string {
+  const fmt = (n: number) => n.toLocaleString('fr-FR') + ' €';
+  if (s.fee && s.feeMax) return `${fmt(s.fee)} – ${fmt(s.feeMax)}`;
+  if (s.fee) return `À partir de ${fmt(s.fee)}`;
+  if (s.isReimbursed) return 'Prise en charge Sécu';
+  return 'Sur devis';
+}

@@ -8,8 +8,6 @@ export { floraContext, medicalGlossary, symptomData };
 export const floraData: MedicalData = {
   rppsNumber: "10101603602",
   conventionnement: "Secteur 2 (Adhérent OPTAM)",
-  consultationFee: 80,
-  consultationBrss: 23,
   slogan: "Chirurgien Maxillo-Facial de référence au GHRMSA. Expertise hospitalière & libérale à Mulhouse.",
   doctors: [{
     fullname: "Dr Flora Jullian",
@@ -27,6 +25,12 @@ export const floraData: MedicalData = {
   }],
   services: [
     {
+      id: "0", name: "Première consultation", slug: "consultation",
+      category: "Consultation",
+      description: "Consultation spécialisée en chirurgie maxillo-faciale avec le Dr Flora Jullian.",
+      fee: 80, brss: 23, isReimbursed: true,
+    },
+    {
       id: "1", name: "Ostéotomie bimaxillaire", slug: "osteotomie-bimaxillaire",
       category: "Chirurgie Orthognathique",
       description: "Correction simultanée des deux mâchoires (Le Fort I & OSBM) pour réaligner l'occlusion et le visage.",
@@ -40,7 +44,7 @@ export const floraData: MedicalData = {
         { day: "M+6", event: "Consolidation osseuse complète et résultat stabilisé." }
       ],
       anesthesia: "Générale", location: "Hôpital (GHRMSA Mulhouse)", stay: "Hospitalisation (2-3 nuits)",
-      priceRange: "2 500€ - 4 500€ (Secteur 2)", fee: 2500, brss: 600, isReimbursed: true,
+      fee: 2500, feeMax: 4500, brss: 600, isReimbursed: true,
       faq: [
         { question: "Dans quel délai reprend-on le travail après une ostéotomie bimaxillaire ?", answer: "Un arrêt de 3 à 4 semaines est recommandé. 80% des patients reprennent le travail sédentaire à 3 semaines, 4 à 6 semaines pour un travail physique." },
         { question: "Faut-il un traitement orthodontique avant et après l'intervention ?", answer: "Oui. Un pré-traitement de 12 à 18 mois prépare les arcades dentaires, suivi d'un post-traitement de 6 à 12 mois pour stabiliser l'occlusion." },
@@ -64,7 +68,7 @@ export const floraData: MedicalData = {
         { day: "M+2", event: "Consolidation osseuse complète." }
       ],
       anesthesia: "Générale", location: "Hôpital (GHRMSA Mulhouse)", stay: "Hospitalisation (2-3 nuits)",
-      priceRange: "Sur devis (Prise en charge Sécu + Mutuelle possible)", isReimbursed: true,
+      isReimbursed: true,
       faq: [
         { question: "Quelle est la différence avec une ostéotomie bimaxillaire ?", answer: "L'ostéotomie mono-maxillaire ne corrige qu'une seule mâchoire (maxillaire ou mandibule), là où la bimaxillaire agit sur les deux." },
         { question: "L'ostéotomie mono-maxillaire est-elle prise en charge par la Sécurité Sociale ?", answer: "Oui, lorsqu'elle est réalisée pour une indication fonctionnelle." },
@@ -88,7 +92,7 @@ export const floraData: MedicalData = {
         { day: "M+6", event: "Évaluation finale du résultat morphologique." }
       ],
       anesthesia: "Générale", location: "Hôpital (GHRMSA Mulhouse)", stay: "Hospitalisation (2-3 nuits)",
-      priceRange: "Sur devis (Prise en charge Sécu + Mutuelle possible)", isReimbursed: true,
+      isReimbursed: true,
       faq: [
         { question: "Peut-on corriger une asymétrie faciale sans chirurgie ?", answer: "Les asymétries mineures peuvent être atténuées par des injections ou un traitement orthodontique. Pour les asymétries squelettiques modérées à sévères, la chirurgie reste le seul traitement définitif." },
         { question: "Combien de temps faut-il pour voir le résultat final ?", answer: "Le résultat final s'apprécie à 6 mois." },
@@ -111,7 +115,7 @@ export const floraData: MedicalData = {
         { day: "J+7", event: "Contrôle de cicatrisation et retrait éventuel des fils." }
       ],
       anesthesia: "Locale ou Générale", location: "Cabinet / GHRMSA Mulhouse", stay: "Ambulatoire",
-      priceRange: "350€ - 600€ (Secteur 2)", fee: 350, brss: 150, isReimbursed: true,
+      fee: 350, feeMax: 600, brss: 150, isReimbursed: true,
       faq: [
         { question: "L'extraction des dents de sagesse est-elle douloureuse ?", answer: "L'intervention se déroule sous anesthésie locale ou générale, donc sans douleur. 90% des patients décrivent une douleur modérée à faible en post-opératoire." },
         { question: "Faut-il extraire les quatre dents de sagesse en même temps ?", answer: "C'est la recommandation la plus fréquente : une seule intervention pour un seul arrêt de travail." },
@@ -131,7 +135,7 @@ export const floraData: MedicalData = {
       risks: ["Récidive", "Infection", "Lésion dentaire adjacente"],
       timeline: [{ day: "J+7", event: "Contrôle radiologique et clinique." }],
       anesthesia: "Locale ou Générale", location: "Cabinet / GHRMSA Mulhouse", stay: "Ambulatoire",
-      priceRange: "Prise en charge Sécu (Secteur 2)", isReimbursed: true,
+      isReimbursed: true,
       faq: [
         { question: "Un kyste maxillaire est-il toujours bénin ?", answer: "Dans la très grande majorité des cas, oui. L'exérèse permet une analyse anatomopathologique systématique." },
         { question: "Faut-il extraire la dent qui est dans le kyste ?", answer: "Pas toujours. Lorsque c'est possible, le Dr Jullian pratique une kystectomie avec conservation dentaire." },
@@ -154,7 +158,7 @@ export const floraData: MedicalData = {
         { day: "M+3", event: "Évaluation pour la pose d'implants." }
       ],
       anesthesia: "Locale ou Générale", location: "Cabinet / GHRMSA Mulhouse", stay: "Ambulatoire",
-      priceRange: "Sur devis (Prise en charge partielle Sécu)", isReimbursed: true,
+      isReimbursed: true,
       faq: [
         { question: "La greffe osseuse est-elle douloureuse ?", answer: "Les suites sont marquées par un gonflement modéré et une gêne pendant quelques jours." },
         { question: "Combien de temps faut-il attendre avant de poser l'implant ?", answer: "La consolidation osseuse nécessite 3 à 6 mois selon la taille du défaut comblé." },
@@ -177,7 +181,7 @@ export const floraData: MedicalData = {
         { day: "J+10", event: "Contrôle de la respiration." }
       ],
       anesthesia: "Générale", location: "Clinique / GHRMSA Mulhouse", stay: "Ambulatoire",
-      priceRange: "Prise en charge Sécu (Secteur 2)", isReimbursed: true,
+      isReimbursed: true,
       faq: [
         { question: "La septoplastie est-elle douloureuse ?", answer: "Les suites sont marquées par une congestion nasale et une gêne légère." },
         { question: "Peut-on ronfler moins après une septoplastie ?", answer: "Oui. En rétablissant un flux d'air nasal normal, la septoplastie réduit les ronflements liés à l'obstruction nasale." },
@@ -201,7 +205,7 @@ export const floraData: MedicalData = {
         { day: "M+12", event: "Résultat final visible." }
       ],
       anesthesia: "Générale", location: "Clinique / GHRMSA Mulhouse", stay: "Ambulatoire",
-      priceRange: "2 500€ - 4 500€", fee: 2500, isReimbursed: false,
+      fee: 2500, feeMax: 4500, isReimbursed: false,
       faq: [
         { question: "La rhinoplastie laisse-t-elle des cicatrices ?", answer: "La voie ouverte laisse une fine cicatrice de 3-4 mm à la base de la columelle, quasi imperceptible après cicatrisation." },
         { question: "Quand voit-on le résultat final d'une rhinoplastie ?", answer: "Le résultat définitif est visible à 12-18 mois post-opératoire." },
@@ -224,7 +228,7 @@ export const floraData: MedicalData = {
         { day: "M+3", event: "Amélioration respiratoire nette." }
       ],
       anesthesia: "Générale", location: "Clinique / GHRMSA Mulhouse", stay: "Ambulatoire",
-      priceRange: "3 000€ - 5 000€", fee: 3000, isReimbursed: false,
+      fee: 3000, feeMax: 5000, isReimbursed: false,
       faq: [
         { question: "Quelle est la différence entre rhinoplastie et rhinoseptoplastie ?", answer: "La rhinoplastie corrige uniquement la forme externe. La rhinoseptoplastie associe correction esthétique et réaxage de la cloison." },
         { question: "La rhinoseptoplastie modifie-t-elle la voix ?", answer: "Une modification légère du timbre vocal est possible." },
@@ -247,7 +251,7 @@ export const floraData: MedicalData = {
         { day: "M+6", event: "Contrôle et éventuelle retouche." }
       ],
       anesthesia: "Locale (sans anesthésie)", location: "Cabinet de consultation", stay: "Immédiat",
-      priceRange: "350€ - 600€ par séance", fee: 350, isReimbursed: false,
+      fee: 350, feeMax: 600, isReimbursed: false,
       faq: [
         { question: "La rhinoplastie médicale est-elle définitive ?", answer: "Non, l'acide hyaluronique se résorbe en 6 à 18 mois." },
         { question: "Quels sont les risques ?", answer: "Rares : rougeur, gonflement ou bleu au point d'injection (24-48h)." },
@@ -270,7 +274,7 @@ export const floraData: MedicalData = {
         { day: "M+1", event: "Maquillage possible." }
       ],
       anesthesia: "Générale", location: "Clinique du Diaconat", stay: "Ambulatoire",
-      priceRange: "1 800€ - 3 000€", fee: 1800, isReimbursed: false,
+      fee: 1800, feeMax: 3000, isReimbursed: false,
       faq: [
         { question: "La blépharoplastie laisse-t-elle des cicatrices visibles ?", answer: "Les incisions sont dissimulées dans les plis naturels des paupières." },
         { question: "Quand reprendre le travail après une blépharoplastie ?", answer: "Un arrêt de 7 à 10 jours est généralement suffisant." },
@@ -293,7 +297,7 @@ export const floraData: MedicalData = {
         { day: "M+3", event: "Volume définitif." }
       ],
       anesthesia: "Générale", location: "Clinique du Diaconat", stay: "Ambulatoire",
-      priceRange: "2 500€ - 4 000€", fee: 2500, isReimbursed: false,
+      fee: 2500, feeMax: 4000, isReimbursed: false,
       faq: [
         { question: "Le lipofilling est-il définitif ?", answer: "Environ 30 à 50% du volume se résorbe dans les 3 premiers mois, le reste est acquis définitivement." },
         { question: "D'où provient la graisse utilisée ?", answer: "Généralement prélevée au niveau du ventre ou des cuisses." },
@@ -316,7 +320,7 @@ export const floraData: MedicalData = {
         { day: "M+1", event: "Reprise du sport." }
       ],
       anesthesia: "Générale", location: "Clinique du Diaconat", stay: "Ambulatoire",
-      priceRange: "2 000€ - 3 500€", fee: 2000, isReimbursed: false,
+      fee: 2000, feeMax: 3500, isReimbursed: false,
       faq: [
         { question: "À partir de quel âge peut-on opérer des oreilles décollées ?", answer: "La cartilagine auriculaire atteint sa taille adulte vers 6-7 ans." },
         { question: "L'otoplastie est-elle douloureuse ?", answer: "Les suites sont très peu douloureuses." },
@@ -339,7 +343,7 @@ export const floraData: MedicalData = {
         { day: "M+2", event: "Résultat stabilisé." }
       ],
       anesthesia: "Générale", location: "Clinique du Diaconat", stay: "Ambulatoire",
-      priceRange: "2 000€ - 3 500€", fee: 2000, isReimbursed: false,
+      fee: 2000, feeMax: 3500, isReimbursed: false,
       faq: [
         { question: "Génioplastie ou implant de menton : quelle est la meilleure option ?", answer: "La génioplastie par ostéotomie est plus naturelle et sans corps étranger." },
         { question: "La génioplastie modifie-t-elle le profil ?", answer: "Oui, c'est le but principal : rééquilibrer le profil facial." },
@@ -362,7 +366,7 @@ export const floraData: MedicalData = {
         { day: "M+1", event: "Surveillance cicatricielle." }
       ],
       anesthesia: "Locale", location: "Cabinet de consultation", stay: "Immédiat",
-      priceRange: "Prise en charge Sécu (Secteur 2)", isReimbursed: true,
+      isReimbursed: true,
       faq: [
         { question: "Faut-il faire analyser la lésion retirée ?", answer: "Oui, systématiquement. Toute lésion est envoyée en analyse anatomopathologique." },
         { question: "Quelles cicatrices après une exérèse cutanée ?", answer: "Le Dr Jullian utilise des techniques de microchirurgie pour minimiser la cicatrice." },
@@ -382,7 +386,7 @@ export const floraData: MedicalData = {
       risks: ["Souffrance du lambeau", "Cicatrice", "Infection"],
       timeline: [{ day: "J+10", event: "Surveillance de la vitalité du lambeau." }],
       anesthesia: "Locale", location: "Cabinet de consultation", stay: "Immédiat",
-      priceRange: "Prise en charge Sécu (Secteur 2)", isReimbursed: true,
+      isReimbursed: true,
       faq: [
         { question: "Qu'est-ce qu'un lambeau local du visage ?", answer: "C'est une technique qui utilise la peau voisine saine pour combler une perte de substance." },
         { question: "Combien de temps faut-il pour cicatriser ?", answer: "La cicatrisation est complète en 2 à 3 semaines." },
@@ -402,7 +406,7 @@ export const floraData: MedicalData = {
       risks: ["Mauvaise prise de la greffe", "Coloration différente", "Infection"],
       timeline: [{ day: "J+10", event: "Contrôle de la prise de greffe." }],
       anesthesia: "Locale", location: "Cabinet de consultation", stay: "Immédiat",
-      priceRange: "Prise en charge Sécu (Secteur 2)", isReimbursed: true,
+      isReimbursed: true,
       faq: [
         { question: "D'où provient la peau utilisée ?", answer: "Prélevée sur le patient lui-même (autogreffe), généralement derrière l'oreille." },
         { question: "La greffe sera-t-elle de la même couleur ?", answer: "La couleur s'harmonise progressivement sur 6 à 12 mois." },

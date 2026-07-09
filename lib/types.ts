@@ -22,7 +22,7 @@ export interface MedicalService {
   recovery?: string;
   risks?: string[];
   timeline?: { day: string; event: string }[];
-  priceRange?: string;
+  feeMax?: number;
   isReimbursed?: boolean;
   anesthesia?: string;
   location?: string;
@@ -86,8 +86,6 @@ export interface MedicalData {
   rppsNumber?: string;
   conventionnement?: string;
   slogan?: string;
-  consultationFee?: number;     // Honoraires PH de la première consultation
-  consultationBrss?: number;    // Base de remboursement Sécu de la consultation
   doctors: MedicalDoctor[];
   services: MedicalService[];
   hours: MedicalHour[];

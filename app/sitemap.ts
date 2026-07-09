@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/symptomes', priority: p.symptomes, changeFreq: f.symptomes, lastModified: now },
   ]
 
-  const serviceRoutes = floraData.services.map((s) => ({
+  const serviceRoutes = floraData.services.filter(s => s.category !== 'Consultation').map((s) => ({
     url: `/interventions/${s.slug}`,
     priority: p.intervention,
     changeFreq: f.default,

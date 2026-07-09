@@ -5,7 +5,7 @@ import MedicalFooter from '@/components/MedicalFooter';
 import FeeSimulator from '@/components/FeeSimulator';
 import { seo } from '@/lib/seo';
 import { floraContext, floraData } from '@/lib/constants';
-import { CATEGORY_ORDER } from '@/lib/categories';
+import { CATEGORY_ORDER, formatPriceRange } from '@/lib/categories';
 import { Shield, ArrowRight, ArrowDown } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default function PricingPage() {
         '@id': `${seo.baseUrl}/tarifs#list`,
         name: 'Tarifs des interventions - Dr Flora Jullian',
         description: 'Honoraires indicatifs des interventions de chirurgie maxillo-faciale',
-        itemListElement: floraData.services.map((s, i) => ({
+        itemListElement: floraData.services.filter(s => s.category !== 'Consultation').map((s, i) => ({
           '@type': 'ListItem',
           position: i + 1,
           url: `${seo.baseUrl}/interventions/${s.slug}`,
@@ -49,7 +49,7 @@ export default function PricingPage() {
               '@type': 'Offer',
               price: s.fee?.toString() ?? undefined,
               priceCurrency: 'EUR',
-              description: s.priceRange ?? 'Sur devis',
+              description: formatPriceRange(s),
               eligibleQuantity: { '@type': 'QuantitativeValue', value: 1 },
             },
           },
@@ -159,7 +159,7 @@ export default function PricingPage() {
                             )}
                           </td>
                           <td className="py-4 text-right">
-                            <span className="text-sm text-[#423C35] font-medium">{service.priceRange || 'Sur devis'}</span>
+                            <span className="text-sm text-[#423C35] font-medium">{formatPriceRange(service)}</span>
                             {service.fee != null && (
                               <a
                                 href="#simulateur"

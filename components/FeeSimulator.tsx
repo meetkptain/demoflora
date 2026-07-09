@@ -34,30 +34,21 @@ function getMutuelleLabel(pct: number): string {
 }
 
 export default function FeeSimulator({ data, initialSlug }: Props) {
-  const consultation: SimProcedure = {
-    name: 'Première consultation',
-    slug: 'consultation',
-    fee: data.consultationFee ?? 80,
-    brss: data.consultationBrss ?? 23,
-    isReimbursed: true,
-    category: '_consultation',
-  };
+  const procedures: SimProcedure[] = data.services
+    .filter((s) => s.fee != null && s.fee > 0)
+    .map((s) => ({
+      name: s.name,
+      slug: s.slug,
+      fee: s.fee!,
+      brss: s.brss ?? 0,
+      isReimbursed: s.isReimbursed ?? false,
+      category: s.category ?? '',
+    }));
 
-  const procedures: SimProcedure[] = [
-    consultation,
-    ...data.services
-      .filter((s) => s.fee != null && s.fee > 0)
-      .map((s) => ({
-        name: s.name,
-        slug: s.slug,
-        fee: s.fee!,
-        brss: s.brss ?? 0,
-        isReimbursed: s.isReimbursed ?? false,
-        category: s.category ?? '',
-      })),
-  ];
+  const consultation = procedures.find((p) => p.slug === 'consultation') ?? procedures[0];
 
-  const grouped = CATEGORY_ORDER.reduce<Record<string, SimProcedure[]>>((acc, cat) => {
+  const allCategories = ['Consultation', ...CATEGORY_ORDER];
+  const grouped = allCategories.reduce<Record<string, SimProcedure[]>>((acc, cat) => {
     const items = procedures.filter((p) => p.category === cat);
     if (items.length > 0) acc[cat] = items;
     return acc;
@@ -112,19 +103,8 @@ export default function FeeSimulator({ data, initialSlug }: Props) {
           <>
             <div className="fixed inset-0 z-30" onClick={() => setDropdownOpen(false)} />
             <div className="absolute left-0 right-0 top-full z-40 mt-2 max-h-80 overflow-y-auto rounded-2xl border border-[#E8DFD1] bg-white shadow-xl">
-              {/* Consultation */}
-              <button
-                onClick={() => { setSelected(consultation); setDropdownOpen(false); }}
-                className={`w-full text-left px-5 py-3 text-sm transition-colors hover:bg-[#FAF9F6] border-b border-[#E8DFD1]/40 ${selected.slug === 'consultation' ? 'bg-[#0891B2]/5 text-[#0891B2] font-semibold' : 'text-[#241F1A]'}`}
-              >
-                <span className="flex items-center justify-between">
-                  <span>Première consultation</span>
-                  <span className="text-xs text-[#9B8B77]">{consultation.fee} €</span>
-                </span>
-              </button>
-
               {/* Grouped by category */}
-              {CATEGORY_ORDER.map((cat) => {
+              {allCategories.map((cat) => {
                 const items = grouped[cat];
                 if (!items) return null;
                 return (

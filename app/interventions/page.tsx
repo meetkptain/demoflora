@@ -55,7 +55,7 @@ function groupByCategory(services: MedicalService[]): { category: string; items:
 export default function InterventionsPage() {
   const groups = groupByCategory(floraData.services);
 
-  const services = floraData.services;
+  const services = floraData.services.filter(s => s.category !== 'Consultation');
   const listingSchema = {
     '@context': 'https://schema.org',
     '@graph': [

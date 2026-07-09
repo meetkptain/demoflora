@@ -10,16 +10,16 @@ import ServiceFAQ from '@/components/ServiceFAQ';
 import { formatTextWithGlossary } from '@/lib/utils';
 import type { MedicalSymptom } from '@/lib/types';
 import { seo } from '@/lib/seo';
-import { getProcedureBodyLocation, CATEGORY_SLUGS } from '@/lib/categories';
+import { getProcedureBodyLocation, CATEGORY_SLUGS, formatPriceRange } from '@/lib/categories';
 import { truncateMeta, ogImage, canonical, buildBreadcrumb, buildMedicalWebPage } from '@/lib/utils-seo';
 
 const BASE_URL = seo.baseUrl;
 
 // Génération des pages statiques pour chaque service
 export async function generateStaticParams() {
-  return floraData.services.map((service) => ({
-    slug: service.slug,
-  }));
+  return floraData.services
+    .filter((s) => s.category !== 'Consultation')
+    .map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -258,7 +258,7 @@ export default async function InterventionDetailPage({ params }: { params: Promi
             <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-widest text-[#A67A3D]">Honoraires estimatifs</p>
-                <p className="mt-1 font-lora text-2xl text-[#241F1A]">{service.priceRange || "Sur devis"}</p>
+                <p className="mt-1 font-lora text-2xl text-[#241F1A]">{formatPriceRange(service)}</p>
               </div>
               <div
                 className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium ${
